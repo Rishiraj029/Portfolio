@@ -1,47 +1,70 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Mail, Code, ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, MapPin } from "lucide-react";
 
 export default function Contact() {
   return (
     <section id="contact" className="section" aria-labelledby="contact-heading">
-      <motion.div 
-        className="section-header"
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="section-header">
         <h2 id="contact-heading" className="section-label">
-          Get in touch
+          Contact
         </h2>
-        <div className="section-line"></div>
-      </motion.div>
-      
-      <motion.div 
-        className="contact-container"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-      >
-        <h3 className="contact-title">Let's build something together</h3>
+        <div className="section-line" />
+      </div>
+
+      <div className="contact-container">
+        <h3 className="contact-title">Let&apos;s talk</h3>
         <p className="contact-text">
-          Whether you have a question, a project idea, or just want to say hi, 
-          I'll try my best to get back to you!
+          Open to internships, freelance work, or just a chat about web
+          development. Drop me a line — I usually reply within a day or two.
         </p>
-        
+
+        <div className="contact-info">
+          <div className="contact-item">
+            <MapPin size={20} className="contact-item-icon" aria-hidden />
+            <div>
+              <p className="contact-label">Location</p>
+              <p className="contact-value">Jodhpur, Rajasthan, India</p>
+            </div>
+          </div>
+          <div className="contact-item">
+            <Mail size={20} className="contact-item-icon" aria-hidden />
+            <div>
+              <p className="contact-label">Email</p>
+              <a
+                href="mailto:rishirajsinghrathore029@gmail.com"
+                className="contact-value contact-link"
+              >
+                rishirajsinghrathore029@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="contact-actions">
           <a href="mailto:rishirajsinghrathore029@gmail.com" className="btn btn-primary">
-            <Mail size={18} />
-            Say Hello
-            <ArrowRight size={16} />
+            <Mail size={18} aria-hidden />
+            Email me
+            <ArrowRight size={16} aria-hidden />
           </a>
-          <a href="https://github.com/Rishiraj029" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-            <Code size={18} />
-            View GitHub
+          <a
+            href="https://www.linkedin.com/in/rishirajsingh029"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+          >
+            <Linkedin size={18} aria-hidden />
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/Rishiraj029"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+          >
+            <Github size={18} aria-hidden />
+            GitHub
           </a>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

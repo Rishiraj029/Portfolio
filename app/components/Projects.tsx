@@ -1,7 +1,12 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Code, ExternalLink, FolderGit2, MessageSquare, Users, CloudRain } from "lucide-react";
+import {
+  CloudRain,
+  Code2,
+  ExternalLink,
+  Github,
+  MessageSquare,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 
 type Project = {
   title: string;
@@ -9,87 +14,122 @@ type Project = {
   tags: string[];
   repo: string;
   live?: string;
-  icon: any;
+  icon: LucideIcon;
+  role?: string;
 };
 
 const projects: Project[] = [
   {
-    title: "Chat App",
+    title: "Chat Application",
     description:
-      "Real-time style chat ui with rooms list and message thread. Practiced state, api routes, and keeping the bundle small.",
-    tags: ["Next.js", "React", "CSS"],
+      "Real-time chat with rooms and live messages using WebSockets.",
+    tags: ["React", "Node.js", "Socket.io", "MongoDB"],
     repo: "https://github.com/Rishiraj029/Chat-App",
-    icon: MessageSquare
+    icon: MessageSquare,
+    role: "Full-stack",
   },
   {
     title: "Interview Platform",
     description:
-      "An advanced Interview Platform designed to streamline candidate evaluation processes with integrated real-time code environments.",
-    tags: ["HTML", "CSS", "Forms", "JS"],
+      "Practice interviews with a shared code editor and session flow.",
+    tags: ["React", "Node.js", "WebRTC"],
     repo: "https://github.com/Rishiraj029",
-    icon: Users
+    icon: Users,
+    role: "Full-stack",
   },
   {
-    title: "Weather Checker",
+    title: "Task Management API",
     description:
-      "City search hits a public weather api and renders the result. Rewrote it until fetch and error states felt stable.",
-    tags: ["JavaScript", "Fetch", "DOM API"],
+      "REST API with JWT auth, CRUD for tasks, and Postman documentation.",
+    tags: ["Node.js", "Express", "MongoDB", "JWT"],
     repo: "https://github.com/Rishiraj029",
-    icon: CloudRain
+    icon: Code2,
+    role: "Backend",
+  },
+  {
+    title: "Weather App",
+    description:
+      "City search and forecasts using the OpenWeather API.",
+    tags: ["JavaScript", "HTML", "CSS", "Fetch API"],
+    repo: "https://github.com/Rishiraj029",
+    icon: CloudRain,
+    role: "Frontend",
+  },
+  {
+    title: "E-Commerce (in progress)",
+    description:
+      "Product catalog, cart, auth, and payment flow — MERN stack.",
+    tags: ["Next.js", "React", "Node.js", "MongoDB"],
+    repo: "https://github.com/Rishiraj029",
+    icon: Code2,
+    role: "Full-stack",
+  },
+  {
+    title: "This portfolio",
+    description:
+      "Personal site with responsive layout, sections, and clean CSS.",
+    tags: ["Next.js", "React", "TypeScript", "CSS"],
+    repo: "https://github.com/Rishiraj029",
+    icon: Code2,
+    role: "Frontend",
   },
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="section" aria-labelledby="projects-heading">
-      <motion.div 
-        className="section-header"
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="section-header">
         <h2 id="projects-heading" className="section-label">
-          Selected work
+          Projects
         </h2>
-        <div className="section-line"></div>
-      </motion.div>
-      
+        <div className="section-line" />
+      </div>
+
       <div className="projects-grid">
-        {projects.map((p, i) => (
-          <motion.article 
-            key={p.title} 
-            className="project"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <div className="project-top">
-              <div className="project-icon">
-                <p.icon size={20} />
-              </div>
-              <div className="project-links">
-                <a href={p.repo} target="_blank" rel="noopener noreferrer" className="project-link" aria-label="Github Repo">
-                  <Code size={20} />
-                </a>
-                {p.live && (
-                  <a href={p.live} target="_blank" rel="noopener noreferrer" className="project-link" aria-label="Live Demo">
-                    <ExternalLink size={20} />
+        {projects.map((p) => {
+          const Icon = p.icon;
+          return (
+            <article key={p.title} className="project">
+              <div className="project-top">
+                <div className="project-icon">
+                  <Icon size={20} aria-hidden />
+                </div>
+                <div className="project-links">
+                  <a
+                    href={p.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                    aria-label={`${p.title} on GitHub`}
+                  >
+                    <Github size={20} />
                   </a>
-                )}
+                  {p.live && (
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      aria-label={`${p.title} live demo`}
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-            <h3 className="project-title">{p.title}</h3>
-            <p className="project-desc">{p.description}</p>
-            <div className="project-tags">
-              {p.tags.map((t) => (
-                <span key={t} className="tag">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </motion.article>
-        ))}
+              <h3 className="project-title">{p.title}</h3>
+              <p className="project-desc">{p.description}</p>
+              {p.role && <p className="project-role">{p.role}</p>}
+              <div className="project-tags">
+                {p.tags.map((t) => (
+                  <span key={t} className="tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

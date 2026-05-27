@@ -1,74 +1,58 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Terminal, Lightbulb, Zap } from "lucide-react";
+import { Code, Database, Zap } from "lucide-react";
 
 export default function About() {
   return (
     <section id="about" className="section" aria-labelledby="about-heading">
-      <motion.div 
-        className="section-header"
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      <div className="section-header">
         <h2 id="about-heading" className="section-label">
-          About me
+          About
         </h2>
-        <div className="section-line"></div>
-      </motion.div>
-      
+        <div className="section-line" />
+      </div>
+
       <div className="about-content">
-        <motion.div 
-          className="about-text"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-        >
+        <div className="about-text">
           <p>
-            I am a developer who thrives on turning complex problems into elegant,
-            user-friendly solutions. I prefer clean architectures and simple stacks
-            that I can easily debug and scale.
+            I&apos;m a computer science student and aspiring software engineer
+            based in Jodhpur. Most of my work sits in the MERN stack — I like
+            building REST APIs, wiring up databases, and pairing that with React
+            front ends that don&apos;t get in the way.
           </p>
           <p>
-            Performance, semantic HTML, and maintainable CSS are my core principles.
-            I believe that great code is not just functional, but readable months or years later.
-            Currently, I am diving deeper into accessibility and mastering advanced CSS layout techniques without relying heavily on frameworks.
+            I try to write code that&apos;s easy to read and change later. That
+            means clear naming, sensible folder structure, and not over-engineering
+            the first version. I&apos;m also working through DSA problems and
+            system design basics alongside my coursework.
           </p>
           <p>
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source, or optimizing personal workflows.
+            Right now I&apos;m looking for internships or junior roles where I can
+            ship real features, learn from a team, and grow on the backend side.
           </p>
-        </motion.div>
-        
-        <motion.div 
-          className="about-stats"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: 0.2 }}
-        >
+        </div>
+
+        <div className="about-stats">
           <div className="stat-item">
-            <Terminal className="stat-icon" size={24} color="var(--accent)" />
+            <Code size={22} color="var(--accent)" aria-hidden />
             <div>
-              <div className="stat-value">Clean</div>
-              <div className="stat-label">Architecture</div>
+              <div className="stat-value">Full-stack</div>
+              <div className="stat-label">MERN & Next.js</div>
             </div>
           </div>
           <div className="stat-item">
-            <Zap className="stat-icon" size={24} color="var(--accent-hot)" />
+            <Database size={22} color="var(--accent)" aria-hidden />
             <div>
-              <div className="stat-value">Fast</div>
-              <div className="stat-label">Performance</div>
+              <div className="stat-value">Backend</div>
+              <div className="stat-label">APIs & databases</div>
             </div>
           </div>
           <div className="stat-item">
-            <Lightbulb className="stat-icon" size={24} color="var(--link)" />
+            <Zap size={22} color="var(--accent)" aria-hidden />
             <div>
-              <div className="stat-value">Smart</div>
-              <div className="stat-label">Solutions</div>
+              <div className="stat-value">Practical</div>
+              <div className="stat-label">Ship, then refine</div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
