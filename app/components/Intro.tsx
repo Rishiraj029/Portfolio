@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 
 export default function Intro() {
   return (
     <section id="intro" className="intro" aria-labelledby="intro-heading">
-      <div className="intro-grid">
+      <div className="intro-content">
         <div className="intro-copy">
           <p className="intro-eyebrow">Software engineer · Jodhpur, India</p>
           <h1 id="intro-heading" className="hero-name">
@@ -44,22 +43,6 @@ export default function Intro() {
             <li className="stack-pill">MongoDB</li>
           </ul>
         </div>
-
-        <figure className="photo-card">
-          <div className="photo-ring">
-            <Image
-              src="/portrait.svg"
-              alt="Portrait of Rishiraj Singh Rathore"
-              width={280}
-              height={350}
-              className="photo-img"
-              priority
-            />
-          </div>
-          <figcaption className="photo-caption">
-            B.Tech CSE · graduating 2026
-          </figcaption>
-        </figure>
       </div>
     </section>
   );

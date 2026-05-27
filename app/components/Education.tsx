@@ -3,9 +3,9 @@ import { BookOpen, Calendar, GraduationCap, MapPin } from "lucide-react";
 const educationData = [
   {
     degree: "B.Tech in Computer Science & Engineering",
-    college: "Engineering college, Jodhpur",
+    college: "Jodhpur Institute of Engineering and Technology",
     location: "Jodhpur, Rajasthan, India",
-    duration: "2022 — 2026 (expected)",
+    duration: "2024 — 2028 (expected)",
     coursework: [
       "Data Structures & Algorithms",
       "Database Management Systems",
